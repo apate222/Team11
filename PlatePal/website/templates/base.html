@@ -11,9 +11,9 @@
       <div class="topnav">
           {% if user.is_authenticated %}
           <a class="topnav" id="home" href="/">Home</a>
-          <a class="topnav" id="logout" href="/logout">Logout</a>
-          <a class="topnav" id="user" href="/user">User</a>
           <a class="topnav" id="about" href="/about">About</a>
+          <a class="topnav" id="user" href="/user">User</a>
+          <a class="topnav" id="logout" href="/logout">Logout</a>
           {% else %}
           <a class="topnav" id="login" href="/login">Login</a>
           <a class="topnav" id="signUp" href="/sign-up">Sign Up</a>
