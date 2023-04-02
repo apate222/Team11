@@ -3,6 +3,7 @@
 {% block title %}Create Recipe{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createRecipe.css') }}">
 <h1>Create Recipe</h1>
 <form method="POST" action="">
     {{ form.csrf_token }}
