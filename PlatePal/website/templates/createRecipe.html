@@ -3,11 +3,13 @@
 {% block title %}Create Recipe{% endblock %}
 
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='createRecipe.css') }}">
 <h1>Create Recipe</h1>
 <form method="POST" action="">
     {{ form.csrf_token }}
-    <a href="{{ url_for('recipe', recipe_id=recipe_id) }}"><h3>{{ form.title.label }} {{ form.title }}</h3></a> <br>
+    {{ form.title.label }} {{ form.title }} <br>
+    {{ form.servings.label }} {{ form.servings }} <br>
+    {{ form.prep_time.label }} {{ form.prep_time }} <br>
+    {{ form.cook_time.label }} {{ form.cook_time }} <br>
     {{ form.description.label }} {{ form.description }} <br><br>
 
     <div class="ingredients">
@@ -23,7 +25,6 @@
     <br><br>
     <input type="submit" value="Create Recipe">
 </form>
-
 <script type="text/javascript">
     function addIngredient() {
         var ingredientsDiv = document.querySelector(".ingredients");
