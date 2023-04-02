@@ -49,3 +49,8 @@ def about():
 def recipe(recipe_id):
     recipe = Recipe.query.get_or_404(recipe_id)
     return render_template("recipe.html", recipe=recipe, user=current_user)
+
+@views.route('/recipes', methods=['GET'])
+def recipes():
+    recipes = Recipe.query.all()
+    return render_template('recipes.html', recipes=recipes, user=current_user)
