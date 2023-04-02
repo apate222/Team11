@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from . import db
 import json
 from .forms import createRecipeForm
-from .models import Recipe, User
+from .models import Recipe, User, Ingredient, Instruction
 
 views = Blueprint('views', __name__)
 
@@ -31,6 +31,20 @@ def createRecipe():
                         servings=form.servings.data,
                         prep_time=form.prep_time.data,
                         cook_time=form.cook_time.data)
+        
+        # create and add ingredients to recipe
+        for ingredient_text in form.ingredients.data.split('\n'):
+            if ingredient_text.strip():
+                ingredient = Ingredient(text=ingredient_text.strip())
+                recipe.ingredients.append(ingredient)
+
+        # create and add instructions to recipe
+        for instruction_text in form.instructions.data.split('\n'):
+            if instruction_text.strip():
+                instruction = Instruction(text=instruction_text.strip())
+                recipe.instructions.append(instruction)
+
+        
         db.session.add(recipe)
         db.session.commit()
 
