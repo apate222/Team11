@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}{{ recipe.title }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='recipe.css') }}">
+  <h1>{{ recipe.title }}</h1>
+  <p>{{ recipe.description }}</p>
+  <p>Servings: {{ recipe.servings }}</p>
+  <p>Prep time: {{ recipe.prep_time }}</p>
+  <p>Cook time: {{ recipe.cook_time }}</p>
+{% endblock %}
