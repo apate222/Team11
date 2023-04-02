@@ -53,3 +53,8 @@ def createRecipe():
         return redirect(url_for('views.user', user=current_user))
 
     return render_template('createRecipe.html', title='Create Recipe', form=form, user=current_user)
+
+@views.route('/about', methods=['GET', 'POST'])
+@login_required
+def about():
+    return render_template("about.html", user=current_user)
