@@ -11,14 +11,8 @@
 
 <div class="container mt-4">
     <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body">
                     <a href="/createRecipe">Create Recipe</a>
                     <p class="card-text">{{ user.bio }}</p>
-                </div>
-            </div>
-        </div>
         <div class="col-md-8">
             <p>Welcome {{ user.first_name }}!</p>
             {% for recipe in user_recipes %}
